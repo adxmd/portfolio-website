@@ -18,15 +18,15 @@ export default function Page() {
                 <div className="text-gray-100">
                     {/* <section id="home" className="h-[500px]"> Home </section> */}
                     <HeroSection />
-                    <section id="about" className="bg-[rgb(224,224,224)] h-[500px]" > 
+                    <section id="about" className="bg-[rgb(224,224,224)] h-[100vh]" > 
                         About 
                     </section>
 
-                    <section id="projects" className="h-[500px]"> 
+                    <section id="projects" className="h-[100vh] bg-[#222629]"> 
                         Projects 
                     </section>
 
-                    <section id="contact" className="h-[500px]"> 
+                    <section id="contact" className="h-[100vh] bg-[rgb(224,224,224)]"> 
                         Contact 
                     </section>
 

@@ -11,6 +11,8 @@ import {
 {/* <PiGithubLogo /> */}
 {/* <PiLinkedinLogo /> */}
 
+import './global.css'
+
 
 const links = [
     {name: 'GitHub', href: 'https://github.com/adxmd', icon: PiGithubLogo},
@@ -18,6 +20,9 @@ const links = [
 ]
 
 import { TypeAnimation } from 'react-type-animation';
+import GradientBorder from './buttons/gradientBorder';
+
+import GradientBorderModal from './buttons/gradientBorderModal';
 
 
 export default function HeroSection() {
@@ -46,7 +51,8 @@ export default function HeroSection() {
                             ]}
                             wrapper="span"
                             speed={50}
-                            style={{ whiteSpace: 'pre-line', display: 'flex' }}
+                            style={{ whiteSpace: 'pre-line', display: 'flex', }}
+                            cursor={false}
                             repeat={Infinity}
                         />
                     </h1>
@@ -69,14 +75,7 @@ export default function HeroSection() {
                             );
                         })}
                     </div>
-
-                    <div className="flex justify-center ">
-                        <button className="mt-6 p-[3px] rounded-[2.0rem] bg-gradient-to-b from-green-700 to-lime-500 ">
-                            <div className="p-5 rounded-[1.9rem] transition ease-out duration-500 hover:bg-[#222629]" >
-                                <span className="text-lg font-semibold">Download Résumé</span>
-                            </div>
-                        </button>
-                    </div>
+                    <GradientBorderModal/>
                 </div>
                 <div id="image" className="flex justify-center items-center md:m-0" >
                     <Image

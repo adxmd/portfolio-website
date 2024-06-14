@@ -16,3 +16,13 @@ input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+@font-face {
+  font-family: "BurbankBold";
+  src: local("BurbankBigCondensed-Bold"),
+        url("/src/fonts/BurbankBigCondensed-Bold.otf") format("otf");
+}
+
+.FN_Font {
+  font-family: BurbankBold;
+}
