@@ -9,14 +9,7 @@ import {
     InformationCircleIcon,  //about
     CodeBracketIcon, CommandLineIcon, CpuChipIcon, //projects
     DevicePhoneMobileIcon, PhoneIcon, //contact
-    Bars3Icon, Bars2Icon, XMarkIcon, //mobile menu
 } from '@heroicons/react/24/outline';
-
-//Used to get the current pathname
-import { usePathname } from 'next/navigation';
-
-//Next.js Link Component
-import Link from 'next/link';
 
 import React, { useState, useEffect } from 'react';
 
@@ -25,8 +18,7 @@ import { MotionConfig, motion } from "framer-motion";
 import NavLinks from './nav-links';
 import MenuOverlay from './menu-overlay';
 
-
-import clsx from 'clsx';
+import { changa } from "./fonts"
 
 const links = [
     { name: 'Home', href: '#home', id:'home', icon: HomeIcon },
@@ -34,77 +26,37 @@ const links = [
     { name: 'Projects', href: '#projects', id:'projects', icon: CodeBracketIcon },
     { name: 'Contact', href: '#contact', id:'contact', icon: DevicePhoneMobileIcon }
 ];
-
-// const AnimatedHamburgerButton = () => {
-//     const [active, setActive] = useState(false);
-//     return (
-//       <MotionConfig
-//         transition={{
-//           duration: 0.5,
-//           ease: "easeInOut",
-//         }}
-//       >
-//         <motion.button
-//           initial={false}
-//           animate={active ? "open" : "closed"}
-//           onClick={() => setActive((pv) => !pv)}
-//           className="relative h-20 w-20 rounded-full bg-white/0 transition-colors hover:bg-white/20"
-//         >
-//           <motion.span
-//             variants={VARIANTS.top}
-//             className="absolute h-1 w-10 bg-white"
-//             style={{ y: "-50%", left: "50%", x: "-50%", top: "35%" }}
-//           />
-//           <motion.span
-//             variants={VARIANTS.middle}
-//             className="absolute h-1 w-10 bg-white"
-//             style={{ left: "50%", x: "-50%", top: "50%", y: "-50%" }}
-//           />
-//           <motion.span
-//             variants={VARIANTS.bottom}
-//             className="absolute h-1 w-5 bg-white"
-//             style={{
-//               x: "-50%",
-//               y: "50%",
-//               bottom: "35%",
-//               left: "50%",
-//             }}
-//           />
-//         </motion.button>
-//       </MotionConfig>
-//     );
-// };
   
-  const VARIANTS = {
+const VARIANTS = {
     top: {
-      open: {
+        open: {
         rotate: ["0deg", "0deg", "45deg"],
         top: ["35%", "50%", "50%"],
-      },
-      closed: {
+        },
+        closed: {
         rotate: ["45deg", "0deg", "0deg"],
         top: ["50%", "50%", "35%"],
-      },
+        },
     },
     middle: {
-      open: {
+        open: {
         rotate: ["0deg", "0deg", "-45deg"],
-      },
-      closed: {
+        },
+        closed: {
         rotate: ["-45deg", "0deg", "0deg"],
-      },
+        },
     },
     bottom: {
-      open: {
+        open: {
         rotate: ["0deg", "0deg", "45deg"],
         bottom: ["35%", "50%", "50%"],
-      },
-      closed: {
+        },
+        closed: {
         rotate: ["45deg", "0deg", "0deg"],
         bottom: ["50%", "50%", "35%"],
-      },
+        },
     },
-  };
+};
 
 // <>
 //     {links.map((link) => {
@@ -123,35 +75,6 @@ const links = [
 //     );
 //     })}
 // </>
-
-function closeMenu() {
-    const navbarDiv = document.getElementById("navBar");
-
-    // "fixed w-[90%] h-[100%] mt-5 left-[50%] translate-x-[-50%]" : "fixed w-[90%] mt-5 left-[50%] translate-x-[-50%] bg-[#121415]/70 backdrop-blur-sm rounded-3xl border-[1px] border-slate-500"
-    if(navbarDiv) {
-        // navbarDiv.style.backgroundColor = "transparent";
-        navbarDiv.style.height = "100%";
-        navbarDiv.style.marginTop = "0";
-        navbarDiv.style.border = "0px";
-        navbarDiv.style.borderRadius = "0px";
-
-
-    }
-}
-
-
-function openMenu() {
-    const navbarDiv = document.getElementById("navBar");
-
-    // // "fixed w-[90%] h-[100%] mt-5 left-[50%] translate-x-[-50%]" : "fixed w-[90%] mt-5 left-[50%] translate-x-[-50%] bg-[#121415]/70 backdrop-blur-sm rounded-3xl border-[1px] border-slate-500"
-    if(navbarDiv) {
-    //     navbarDiv.style.backgroundColor = "red";
-    //     navbarDiv.style.height = "20%";
-        navbarDiv.style.height = "auto";
-        navbarDiv.style.marginTop = "1.25rem";
-    }
-
-}
 
 export default function NavBarFull() {
     const [header,setHeader] = useState(false);
@@ -189,7 +112,7 @@ export default function NavBarFull() {
         <div className="transition ease-in-out duration-500">
             <div id="navBar" className={navbarOpen ? "fixed w-[100%] h-[100%] mt-5 left-[50%] translate-x-[-50%]" : "fixed h-[6.1rem] w-[90%] mt-5 left-[50%] translate-x-[-50%] bg-[#121415]/70 backdrop-blur-sm rounded-3xl border-[1px] border-slate-500"}>
                 <div className={navbarOpen ? " px-[4.5rem] py-2 flex justify-between items-center" : "lg:px-6 lg:py-8 px-6 py-2 flex justify-between items-center"}>
-                    <div onClick={() => scrollToSection('home')} className="z-10 text-2xl text-transparent bg-clip-text bg-gradient-to-tr from-green-700 to-lime-500 font-semibold hover:text-white hover:cursor-pointer">
+                    <div onClick={() => scrollToSection('home')} className={`${changa.className} z-10 text-2xl text-transparent bg-clip-text bg-gradient-to-tr from-green-700 to-lime-500 hover:text-white hover:cursor-pointer`}>
                         Adam.dev
                     </div>
 
@@ -235,9 +158,10 @@ export default function NavBarFull() {
                     </div>
 
                     {/* NavLinks \/ */}
-                    <div className="hidden lg:flex text-white flex-row font-semibold gap-2">
+                    <div className="hidden lg:flex text-white flex-row font-semibold gap-2 mr-10">
                         <NavLinks links={links}/>
                     </div>
+                
                     
                 </div>
                 {navbarOpen ? <MenuOverlay setNavbarOpen = {setNavbarOpen} links={links} /> : null}

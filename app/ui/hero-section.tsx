@@ -29,9 +29,9 @@ export default function HeroSection() {
 
     return (
         <>
-            <div id="main" className="flex flex-col-reverse justify-evenly items-center bg-[#222629] h-[100vh] text-gray-50 md:flex-row">
+            <div id="main" className="flex flex-col-reverse justify-evenly md:justify-center items-center bg-[#222629] h-[100vh] text-gray-50 md:flex-row">
                 <div id="hello" className="flex flex-col gap-2">
-                    <h1 className="font-bold text-4xl">
+                    <h1 className="md:text-start text-center flex flex-col items-center md:items-start font-bold text-4xl w-[70vw] md:w-[40vw] h-[12vh] ">
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-900">
                             Hello, I&apos;m{" "}
                         </span>
@@ -59,7 +59,7 @@ export default function HeroSection() {
                     {/* <h1 className="text-4xl">Hello, I&apos;m</h1>
                     <h1>Adam David</h1> make this typing animation */}
 
-                    <div id="socials" className="flex flex-row text-3xl">
+                    <div id="socials" className="flex flex-row justify-center md:justify-normal text-3xl">
                         {links.map((link) => {
                             const LinkIcon = link.icon;
 
@@ -75,9 +75,11 @@ export default function HeroSection() {
                             );
                         })}
                     </div>
-                    <GradientBorderModal/>
+                    <div className="flex justify-center md:justify-normal">
+                        <GradientBorderModal/>
+                    </div>
                 </div>
-                <div id="image" className="flex justify-center items-center md:m-0" >
+                <div id="image" className="flex justify-center items-center md:mt-0 mt-12" >
                     <Image
                         src="/profile_pic.jpg"
                         width={200}

@@ -3,7 +3,7 @@
 
 import './global.css';
 
-
+import { changa, changaOne } from './fonts';
 
 //Icon
 import { 
@@ -45,8 +45,8 @@ export default function MenuOverlay( {
     }
 
     return (
-        <div className="FN_Font">
-            <div className='fixed top-[-10%] right-0 w-[100%] h-[110%] overflow-x-hidden lg:hidden bg-[#222629] duration-500 font-semibold text-6xl gap-10 flex flex-col justify-center items-center'>
+        <div className={`${changa.className}`}>
+            <div className='fixed top-[-10%] right-0 w-[100%] h-[110%] overflow-x-hidden lg:hidden bg-[#222629] font-semibold text-6xl gap-10 flex flex-col justify-center items-center'>
             {links.map((link) => {
 
                 const LinkIcon = link.icon;
@@ -55,12 +55,12 @@ export default function MenuOverlay( {
                     <div
                         onClick={() => scrollToSectionAndClose(link.id)}
                         key={link.name}
-                        className='flex flex-row justify-center text-white items-center gap-2  transition ease-out duration-300 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-green-500 hover:to-green-900 hover:cursor-pointer'
+                        className='text-neutral-200 flex flex-row justify-center items-center hover:cursor-pointer'
                         >
                         {/* <div className="hidden lg:flex items-center justify-center w-[60px] h-[60px] rounded-lg border-2">
                             <LinkIcon className="w-[40px]" />
                         </div> */}
-                        <p className="block lg:hidden">{link.name}</p>
+                        <p className="transition ease duration-300 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-b hover:from-green-700 hover:to-lime-500 block lg:hidden">{link.name}</p>
                     </div>
                 );
                 })}
