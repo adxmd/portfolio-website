@@ -11,9 +11,11 @@ import { RiTailwindCssFill, RiNextjsFill } from "react-icons/ri";
 
 import './global.css'
 
+import { changa } from "./fonts";
+
 
 const skills = [
-    {name: 'HTML', href: 'javascript:void(0)', icon: IoLogoHtml5},
+    {name: 'HTML', href: '#!', icon: IoLogoHtml5},
     {name: 'CSS', href: 'javascript:void(0)', icon: FaCss3},
     {name: 'JavaScript', href: 'javascript:void(0)', icon: SiJavascript},
     {name: 'Node.js', href: 'javascript:void(0)', icon: FaNode},
@@ -37,11 +39,11 @@ export default function AboutSection() {
 
     return (
         <>                              {/**bg-[rgb(224,224,224)] bg-[#222629]*/}
-            <div className="flex flex-col items-center pt-[9.1rem] pb-[2.5rem] bg-[rgb(224,224,224)] min-h-[100vh] gap-[6rem]">
+            <div className="flex flex-col items-center pt-[9.1rem] pb-[5.0rem] bg-[rgb(224,224,224)] min-h-[100vh] gap-[6rem]">
                 <div className="flex flex-col lg:flex-row w-[65vw]">
                     <div>
-                        <div id="section_title" className="mx-6 flex justify-left w-[30%]">
-                            <h1 className="text-transparent bg-clip-text bg-gradient-to-br from-green-700 to-lime-600 text-2xl font-semibold">BACKGROUND</h1>
+                        <div id="section_title" className={` ${changa.className} mx-6 flex justify-left`}>
+                            <h1 className="text-transparent bg-clip-text bg-gradient-to-br from-green-700 to-lime-600 text-3xl font-semibold">BACKGROUND</h1>
                         </div>
                         <span className="mb-10 lg:mb-0 mx-6 flex h-1 w-[4.0rem] bg-gradient-to-tr from-green-700 to-lime-500 rounded-full"></span>
                     </div>
@@ -65,8 +67,8 @@ export default function AboutSection() {
 
                 <div className="flex flex-col lg:flex-row w-[65vw]">
                     <div>
-                        <div id="section_title" className="mx-6 flex justify-left lg:w-[30%]">
-                            <h1 className="text-transparent bg-clip-text bg-gradient-to-br from-green-700 to-lime-600 text-2xl font-semibold">TECHNICAL SKILLS</h1>
+                    <div id="section_title" className={` ${changa.className} mx-6 flex justify-left`}>
+                            <h1 className="text-transparent bg-clip-text bg-gradient-to-br from-green-700 to-lime-600 text-3xl font-semibold">TECHNICAL SKILLS</h1>
                         </div>
                         <span className="mb-10 lg:mb-0 mx-6 flex h-1 w-[4.0rem] bg-gradient-to-tr from-green-700 to-lime-500 rounded-full"></span>
 
@@ -80,15 +82,14 @@ export default function AboutSection() {
                                 const LinkIcon = skill.icon;
 
                                 return (
-                                    <Link
+                                    <div
                                         key={skill.name}
-                                        href={skill.href}
-                                        className="group flex flex-col items-center transition ease-in-out duration-300 hover:text-green-600 hover:cursor-pointer hover:scale-125"
+                                        className="group flex flex-col items-center transition ease-in-out duration-300 hover:text-green-600 hover:cursor-crosshair hover:scale-125"
                                         >
                                             <LinkIcon className="text-5xl"/>
                                             <p className="font-semibold text-green-600 transition duration-300 opacity-0 group-hover:opacity-100 text-sm">{skill.name}</p>
 
-                                    </Link>
+                                    </div>
                                 );
                             })}
                         

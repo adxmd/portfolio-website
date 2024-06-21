@@ -31,13 +31,13 @@ export default function HeroSection() {
         <>
             <div id="main" className="flex flex-col-reverse justify-evenly md:justify-center items-center bg-[#222629] h-[100vh] text-gray-50 md:flex-row">
                 <div id="hello" className="flex flex-col gap-2">
-                    <h1 className="md:text-start text-center flex flex-col items-center md:items-start font-bold text-4xl w-[70vw] md:w-[40vw] h-[12vh] ">
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-900">
+                    <h1 className="md:text-start text-center flex flex-col items-center md:items-start font-bold w-[70vw] md:w-[40vw] h-[12vh] ">
+                        <span className="text-4xl text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-900">
                             Hello, I&apos;m{" "}
                         </span>
                         <TypeAnimation
                             preRenderFirstString={true}
-                            className="text-3xl"
+                            className="text-2xl sm:text-3xl"
                             sequence={[
                             // Same substring at the start will only be typed out once, initially
                             'Adam',
@@ -59,7 +59,7 @@ export default function HeroSection() {
                     {/* <h1 className="text-4xl">Hello, I&apos;m</h1>
                     <h1>Adam David</h1> make this typing animation */}
 
-                    <div id="socials" className="flex flex-row justify-center md:justify-normal text-3xl">
+                    <div id="socials" className="flex flex-row justify-center md:justify-normal text-3xl mt-10 min-[328px]:mt-0">
                         {links.map((link) => {
                             const LinkIcon = link.icon;
 
@@ -81,11 +81,12 @@ export default function HeroSection() {
                 </div>
                 <div id="image" className="flex justify-center items-center md:mt-0 mt-12" >
                     <Image
-                        src="/profile_pic.jpg"
+                        priority={true}
+                        src="/hero.jpg"
                         width={200}
-                        height={100}
+                        height={300}
                         alt="Picture of Developer"
-                        className="rounded-full border-2 border-white">
+                        className="rounded-[1000px] border-2 border-white object-cover w-[200px] h-[300px]">
 
                     </Image>
                 </div>

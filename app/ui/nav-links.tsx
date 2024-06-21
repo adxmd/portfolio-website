@@ -14,6 +14,8 @@ import {
 //Used to get the current pathname
 import { usePathname } from 'next/navigation';
 
+import { changa } from "./fonts";
+
 //Next.js Link Component
 import Link from 'next/link';
 
@@ -56,7 +58,7 @@ export default function NavLinks( {
                     className='flex flex-row items-center gap-2 mr-3 border-0 transition ease-out duration-300 hover:text-green-700 hover:cursor-pointer'
                     >
                     <LinkIcon className="w-[30px]" />
-                    <p className="hidden text-xl lg:block">{link.name}</p>
+                    <p className={`${changa.className} hidden text-xl lg:block`}>{link.name}</p>
                 </div>
             );
             })}

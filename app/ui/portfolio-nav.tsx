@@ -6,27 +6,52 @@ import clsx from "clsx";
 
 import { changa } from "./fonts";
 
-export default function PortfolioNav({ categories, selected, setSelected, setOpacity } : { 
-    categories: {
+// Function to extract unique categories using reduce
+function extractUniqueCategories(
+    projects: { name: string; category: string; categoryId: number; picture: string; }[]
+    ) : { 
+        name: string; 
+        id: number; 
+    }[] {
+
+    return projects.reduce((acc: { name: string; id: number; }[], project) => {
+        if(!acc.some(item => item.id === 0)) {
+            acc.push({name: 'All', id:0});
+        }
+        
+        // Check if the category is already added to the accumulator
+        if (!acc.some(item => item.id === project.categoryId)) {
+            acc.push({ name: project.category, id: project.categoryId });
+        }
+        return acc;
+    }, []);
+}
+
+export default function PortfolioNav({ projects, selected, setSelected, setOpacity } : { 
+    projects: {
         name: string;
-        id: number;
+        category: string;
+        categoryId: number;
+        picture: string;
     }[];
     selected: number;
     setSelected: Dispatch<SetStateAction<number>>; 
     setOpacity: Dispatch<SetStateAction<number>>;
 }) {
 
+    const categories : { name: string, id: number}[] = extractUniqueCategories(projects);
+
     return (
         <>
-            <div id="category_nav" className="mx-6">
-                <div className="flex flex-row gap-5 text-2xl">
+            <div id="category_nav" className="mx-6 md:mx-[10%] flex justify-center min-[1060px]:justify-normal overflow-y-scroll">
+                <div className="flex flex-row gap-5 text-lg sm:text-2xl">
 
                 {categories.map((category) => {
 
                     return (
                         <NavItem 
                             key={category.name}
-                            className={`${changa.className} transition ease duration-200 hover:text-green-600`} 
+                            className={`${changa.className} transition ease duration-300 hover:text-green-600`} 
                             selected={selected == category.id} 
                             curSelected={selected} 
                             id={category.id} setSelected={setSelected} 
@@ -36,10 +61,6 @@ export default function PortfolioNav({ categories, selected, setSelected, setOpa
                         </NavItem>
                     );
                 })}
-
-                    {/* <NavItem className={`${changa.className} transition ease duration-200 hover:text-green-600`} selected={selected == 0} curSelected={selected} id={0} setSelected={setSelected} setOpacity={setOpacity}>All</NavItem>
-                    <NavItem className={`${changa.className} transition ease duration-200 hover:text-green-600`} selected={selected == 1} curSelected={selected} id={1} setSelected={setSelected} setOpacity={setOpacity}>Web Development</NavItem>
-                    <NavItem className={`${changa.className} transition ease duration-200 hover:text-green-600`} selected={selected == 2} curSelected={selected} id={2} setSelected={setSelected} setOpacity={setOpacity}>Machine Learning</NavItem> */}
                 </div>
             </div>
         </>
@@ -80,14 +101,6 @@ const NavItem = ({
                             setOpacity(1);
                         }, 400);
                     }
-
-                    // clearTimeout(timeout);
-
-                    // const timeout1 = setTimeout(() => {
-                    //     setOpacity(1);
-                    // }, 200)
-
-                    // clearTimeout(timeout1);
                 }} 
                 className={clsx (
                     "",
